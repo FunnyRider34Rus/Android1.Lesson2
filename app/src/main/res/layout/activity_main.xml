@@ -1,18 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/print_history"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:maxLines="1"
+        android:textSize="60sp"
+        android:gravity="end"
+        tools:text="history" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/print_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="100sp"
+        android:gravity="end"
+        android:text="@string/result" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:columnCount="4">
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_clear"
+            android:text="@string/button_clear"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_plus_minus"
+            android:text="@string/button_plus_minus"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_division"
+            android:text="@string/button_division"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_multiply"
+            android:text="@string/button_multiply"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_7"
+            android:text="@string/button_7"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_8"
+            android:text="@string/button_8"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_9"
+            android:text="@string/button_9"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_minus"
+            android:text="@string/button_minus"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_4"
+            android:text="@string/button_4"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_5"
+            android:text="@string/button_5"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_6"
+            android:text="@string/button_6"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_plus"
+            android:text="@string/button_plus"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_1"
+            android:text="@string/button_1"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_2"
+            android:text="@string/button_2"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_3"
+            android:text="@string/button_3"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_rowSpan="2"
+            android:id="@+id/button_equals"
+            android:text="@string/button_equals" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:id="@+id/button_0"
+            android:text="@string/button_0"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button_dot"
+            android:text="@string/button_dot"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+    </GridLayout>
+
+
+</LinearLayout>
