@@ -10,15 +10,22 @@
     <TextView
         android:id="@+id/print_history"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="end"
-        android:maxLines="2"
+        android:layout_height="80dp"
         android:background="#E0E0E0"
+        android:gravity="end|center_vertical"
+        android:maxLines="2"
         app:autoSizeMaxTextSize="60sp"
         app:autoSizeMinTextSize="30sp"
         app:autoSizeStepGranularity="30sp"
         app:autoSizeTextType="uniform"
         tools:text="history" />
+
+    <TextView
+        android:id="@+id/print_operation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="end|center_vertical"
+        tools:text="operation" />
 
     <TextView
         android:id="@+id/print_result"
