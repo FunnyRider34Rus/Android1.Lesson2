@@ -10,17 +10,17 @@ class MainActivity : AppCompatActivity() {
 
     var num1: String = ""                           //@param вводимое число
     var num2: Double = 0.0                          //@param буффурное значение
-    var isDot: Boolean = false                    //@param проверка нажатия точки
-    var lastOperation: String = ""
+    var isDot: Boolean = false                      //@param проверка нажатия точки
+    var lastOperation: String = ""                  //@param вывод знака операции
+
+    val NUM1: String = "num1"
+    val NUM2: String = "num2"
+    val IS_DOT: String = "isDot"
+    val LAST_OPERATION: String = "lastOperation"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //восстанавливаем состояние
-        //if (savedInstanceState != null) {
-        //
-        //}
 
         val button0 = findViewById<Button>(R.id.button_0)
         val button1 = findViewById<Button>(R.id.button_1)
@@ -45,6 +45,17 @@ class MainActivity : AppCompatActivity() {
         val printResult = findViewById<TextView>(R.id.print_result)
         val printHistory = findViewById<TextView>(R.id.print_history)
         val printOperation = findViewById<TextView>(R.id.print_operation)
+
+        //восстанавливаем состояние
+        if (savedInstanceState != null) {
+            num1 = savedInstanceState.getString(NUM1).toString()
+            num2 = savedInstanceState.getDouble(NUM2)
+            isDot = savedInstanceState.getBoolean(IS_DOT)
+            lastOperation = savedInstanceState.getString(LAST_OPERATION).toString()
+            printResult.text = num1
+            printHistory.text = num2.toString()
+            printOperation.text = lastOperation
+        }
 
         button0.setOnClickListener {
             if (num1 != "0" && num1 != "") {
@@ -118,16 +129,18 @@ class MainActivity : AppCompatActivity() {
 
         buttonEquals.setOnClickListener {
             if (lastOperation != "" && num1 != ".") {
-                Log.d("lastOperation", lastOperation)
-                if (lastOperation == "+") num2 += num1.toDouble()
-                if (lastOperation == "-") num2 -= num1.toDouble()
-                if (lastOperation == "*") num2 *= num1.toDouble()
-                if (lastOperation == "/") num2 /= num1.toDouble()
+                when(lastOperation) {
+                    "+" -> num2 += num1.toDouble()
+                    "-" -> num2 -= num1.toDouble()
+                    "*" -> num2 *= num1.toDouble()
+                    "/" -> num2 /= num1.toDouble()
+                }
                 num1 = ""
                 isDot = false
                 lastOperation = ""
                 printHistory.text = num2.toString()
                 printResult.text = "0"
+                printOperation.text = lastOperation
             }
         }
 
@@ -188,8 +201,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     //сохранияем переменные
-    //override fun onSaveInstanceState(savedInstanceState: Bundle) {
-    //    savedInstanceState.putInt()
-    //    super.onSaveInstanceState(savedInstanceState)
-    //}
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putString(NUM1, num1)
+        savedInstanceState.putDouble(NUM2, num2)
+        savedInstanceState.putBoolean(IS_DOT, isDot)
+        savedInstanceState.putString(LAST_OPERATION, lastOperation)
+        super.onSaveInstanceState(savedInstanceState)
+    }
 }
