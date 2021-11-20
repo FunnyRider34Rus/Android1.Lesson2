@@ -2,7 +2,7 @@ package com.example.lesson2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 
@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     var num1: String = ""                           //@param вводимое число
     var num2: Double = 0.0                          //@param буффурное значение
-    var lastDot: Boolean = false                    //@param проверка нажатия точки
+    var isDot: Boolean = false                    //@param проверка нажатия точки
     var lastOperation: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         val printResult = findViewById<TextView>(R.id.print_result)
         val printHistory = findViewById<TextView>(R.id.print_history)
+        val printOperation = findViewById<TextView>(R.id.print_operation)
 
         button0.setOnClickListener {
             if (num1 != "0" && num1 != "") {
@@ -100,105 +101,89 @@ class MainActivity : AppCompatActivity() {
         buttonClear.setOnClickListener {
             num1 = ""
             num2 = 0.0
-            lastDot = false
+            isDot = false
             lastOperation = ""
-            printHistory.text = num2.toString()
+            printHistory.text = ""
             printResult.text = "0"
+            printOperation.text = ""
         }
 
         buttonDot.setOnClickListener {
-            if (!lastDot) {
+            if (!isDot) {
                 num1 += "."
                 printResult.text = num1
-                lastDot = true
+                isDot = true
             }
         }
 
         buttonEquals.setOnClickListener {
-            when (lastOperation) {
-                "+" -> {num2 += num1.toDouble()}
-                "-" -> {num2 -= num1.toDouble()}
-                "*" -> {num2 *= num1.toDouble()}
-                "/" -> {num2 /= num1.toDouble()}
+            if (lastOperation != "" && num1 != ".") {
+                Log.d("lastOperation", lastOperation)
+                if (lastOperation == "+") num2 += num1.toDouble()
+                if (lastOperation == "-") num2 -= num1.toDouble()
+                if (lastOperation == "*") num2 *= num1.toDouble()
+                if (lastOperation == "/") num2 /= num1.toDouble()
+                num1 = ""
+                isDot = false
+                lastOperation = ""
+                printHistory.text = num2.toString()
+                printResult.text = "0"
             }
-            num1 = ""
-            lastDot = false
-            lastOperation = ""
-            printHistory.text = num2.toString()
-            printResult.text = "0"
         }
 
         buttonPlus.setOnClickListener {
-            if (lastOperation == "") {
-                num2 += num1.toDouble()
-                num1 = ""
-                lastDot = false
-                printHistory.text = num2.toString()
-                printResult.text = "0"
-            } else {
+            if (num1 != "" && num1 != ".") {
                 num2 = num1.toDouble()
                 lastOperation = "+"
-                lastDot = false
+                isDot = false
                 num1 = ""
                 printHistory.text = num2.toString()
                 printResult.text = "0"
+                printOperation.text = lastOperation
             }
         }
 
         buttonMinus.setOnClickListener {
-            if (lastOperation == "") {
-                num2 -= num1.toDouble()
-                num1 = ""
-                lastDot = false
-                printHistory.text = num2.toString()
-                printResult.text = "0"
-            } else {
+            if (num1 != "" && num1 != ".") {
                 num2 = num1.toDouble()
                 lastOperation = "-"
-                lastDot = false
+                isDot = false
                 num1 = ""
                 printHistory.text = num2.toString()
                 printResult.text = "0"
+                printOperation.text = lastOperation
             }
         }
 
         buttonMultiply.setOnClickListener {
-            if (lastOperation == "") {
-                num2 *= num1.toDouble()
-                num1 = ""
-                lastDot = false
-                printHistory.text = num2.toString()
-                printResult.text = "0"
-            } else {
+            if (num1 != "" && num1 != ".") {
                 num2 = num1.toDouble()
                 lastOperation = "*"
-                lastDot = false
+                isDot = false
                 num1 = ""
                 printHistory.text = num2.toString()
                 printResult.text = "0"
+                printOperation.text = lastOperation
             }
         }
 
         buttonDiv.setOnClickListener {
-            if (lastOperation == "") {
-                num2 /= num1.toDouble()
-                num1 = ""
-                lastDot = false
-                printHistory.text = num2.toString()
-                printResult.text = "0"
-            } else {
+            if (num1 != "" && num1 != ".") {
                 num2 = num1.toDouble()
                 lastOperation = "/"
-                lastDot = false
+                isDot = false
                 num1 = ""
                 printHistory.text = num2.toString()
                 printResult.text = "0"
+                printOperation.text = lastOperation
             }
         }
 
         buttonPlusMinus.setOnClickListener {
-            num1 = (num1.toDouble() * -1).toString()
-            printResult.text = num1
+            if (num1 != "" && num1 != ".") {
+                num1 = (num1.toDouble() * -1).toString()
+                printResult.text = num1
+            }
         }
     }
 
