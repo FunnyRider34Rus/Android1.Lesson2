@@ -153,7 +153,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_equals"
-            style="@style/EqualBotton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:textColor="@color/colorPrimaryVariant"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_rowSpan="2"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
