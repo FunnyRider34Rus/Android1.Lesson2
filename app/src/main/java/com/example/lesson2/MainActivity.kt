@@ -2,21 +2,22 @@ package com.example.lesson2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val NUM1: String = "num1"
+        const val NUM2: String = "num2"
+        const val IS_DOT: String = "isDot"
+        const val LAST_OPERATION: String = "lastOperation"
+    }
+
     var num1: String = ""                           //@param вводимое число
     var num2: Double = 0.0                          //@param буффурное значение
     var isDot: Boolean = false                      //@param проверка нажатия точки
     var lastOperation: String = ""                  //@param вывод знака операции
-
-    val NUM1: String = "num1"
-    val NUM2: String = "num2"
-    val IS_DOT: String = "isDot"
-    val LAST_OPERATION: String = "lastOperation"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +61,8 @@ class MainActivity : AppCompatActivity() {
         button0.setOnClickListener {
             if (num1 != "0" && num1 != "") {
                 num1 += "0"
-                printResult.text = num1
             }
+            printResult.text = num1
         }
 
         button1.setOnClickListener {

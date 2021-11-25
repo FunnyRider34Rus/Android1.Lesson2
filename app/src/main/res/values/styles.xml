@@ -3,7 +3,20 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your theme here. -->
-        <item name="android:textSize">26sp</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimaryVariant</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/textSize</item>
+    </style>
+
+    <style name="MaterialAdditional" parent="AppTheme">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="EqualBotton" parent="AppTheme">
+        <item name="android:textColor">@color/colorPrimaryVariant</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
     </style>
 
 </resources>
