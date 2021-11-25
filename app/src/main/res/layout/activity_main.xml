@@ -11,7 +11,7 @@
         android:id="@+id/print_history"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#E0E0E0"
+        android:background="@color/background_color_history"
         android:gravity="end|center_vertical"
         android:maxLines="2"
         app:autoSizeMaxTextSize="60sp"
@@ -48,112 +48,112 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_clear"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_clear" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_plus_minus"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_plus_minus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_division"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_division" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_multiply"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_multiply" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_7"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_7" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_8"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_8" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_9"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_9" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_minus"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_minus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_4"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_4" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_5"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_6"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_6" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_plus"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_plus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_1"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_2"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_3"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_3" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_equals"
-            style="@style/Widget.MaterialComponents.Button"
+            style="@style/EqualBotton"
             android:layout_rowSpan="2"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
@@ -161,7 +161,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_0"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnSpan="2"
             android:layout_columnWeight="1"
@@ -169,7 +169,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_dot"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/MaterialAdditional"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:text="@string/button_dot" />
