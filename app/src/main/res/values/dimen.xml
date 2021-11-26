@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSize">26sp</dimen>
+    <dimen name="history_height">80dp</dimen>
+    <dimen name="max_textsize_history">60sp</dimen>
+    <dimen name="min_textsize_history">30sp</dimen>
+    <dimen name="step_textsize_history">30sp</dimen>
+    <dimen name="opertion_height">40dp</dimen>
+    <dimen name="result_height">150dp</dimen>
+    <dimen name="max_textsize_result">120sp</dimen>
+    <dimen name="mix_textsize_result">60sp</dimen>
+    <dimen name="step_textsize_result">60sp</dimen>
+    <color name="background_color_history">#E0E0E0</color>
+</resources>
