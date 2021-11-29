@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textSize">26sp</dimen>
+    <dimen name="textSize">18sp</dimen>
     <dimen name="history_height">80dp</dimen>
     <dimen name="max_textsize_history">60sp</dimen>
     <dimen name="min_textsize_history">30sp</dimen>

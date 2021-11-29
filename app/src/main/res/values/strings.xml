@@ -19,4 +19,6 @@
     <string name="button_equals">=</string>
     <string name="button_0">0</string>
     <string name="button_dot">.</string>
+    <string name="settings">settings</string>
+    <string name="page_title">calculator</string>
 </resources>
