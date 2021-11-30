@@ -1,5 +1,6 @@
 package com.example.lesson2
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,8 @@ import android.view.Menu
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
@@ -16,15 +19,26 @@ class MainActivity : AppCompatActivity() {
         const val NUM2: String = "num2"
         const val IS_DOT: String = "isDot"
         const val LAST_OPERATION: String = "lastOperation"
+        const val THEME_MODE: String = "themeMode"
     }
 
     private var num1: String = ""                           //@param вводимое число
     private var num2: Double = 0.0                          //@param буффурное значение
     private var isDot: Boolean = false                      //@param проверка нажатия точки
     private var lastOperation: String = ""                  //@param вывод знака операции
+    private var themeMode: Boolean = false
+
+    private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val Intent = result.data
+            Intent?.getBooleanExtra(THEME_MODE, themeMode)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (themeMode) setTheme(R.style.Theme_MaterialComponents_NoActionBar)
+            else setTheme(R.style.Theme_MaterialComponents_Light_NoActionBar)
         setContentView(R.layout.activity_main)
 
         val button0: Button = findViewById(R.id.button_0)
@@ -64,8 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         settingsButton.setOnClickListener {
-            val settingsIntent = Intent(this, SettingsActivity::class.java)
-            startActivity(settingsIntent)
+            startForResult.launch(Intent(this,  SettingsActivity::class.java))
         }
 
         button0.setOnClickListener {
