@@ -1,51 +1,56 @@
 package com.example.lesson2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
+    private companion object {
         const val NUM1: String = "num1"
         const val NUM2: String = "num2"
         const val IS_DOT: String = "isDot"
         const val LAST_OPERATION: String = "lastOperation"
     }
 
-    var num1: String = ""                           //@param вводимое число
-    var num2: Double = 0.0                          //@param буффурное значение
-    var isDot: Boolean = false                      //@param проверка нажатия точки
-    var lastOperation: String = ""                  //@param вывод знака операции
+    private var num1: String = ""                           //@param вводимое число
+    private var num2: Double = 0.0                          //@param буффурное значение
+    private var isDot: Boolean = false                      //@param проверка нажатия точки
+    private var lastOperation: String = ""                  //@param вывод знака операции
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button0 = findViewById<Button>(R.id.button_0)
-        val button1 = findViewById<Button>(R.id.button_1)
-        val button2 = findViewById<Button>(R.id.button_2)
-        val button3 = findViewById<Button>(R.id.button_3)
-        val button4 = findViewById<Button>(R.id.button_4)
-        val button5 = findViewById<Button>(R.id.button_5)
-        val button6 = findViewById<Button>(R.id.button_6)
-        val button7 = findViewById<Button>(R.id.button_7)
-        val button8 = findViewById<Button>(R.id.button_8)
-        val button9 = findViewById<Button>(R.id.button_9)
-        val buttonDot = findViewById<Button>(R.id.button_dot)
+        val button0: Button = findViewById(R.id.button_0)
+        val button1: Button = findViewById(R.id.button_1)
+        val button2: Button = findViewById(R.id.button_2)
+        val button3: Button = findViewById(R.id.button_3)
+        val button4: Button = findViewById(R.id.button_4)
+        val button5: Button = findViewById(R.id.button_5)
+        val button6: Button = findViewById(R.id.button_6)
+        val button7: Button = findViewById(R.id.button_7)
+        val button8: Button = findViewById(R.id.button_8)
+        val button9: Button = findViewById(R.id.button_9)
+        val buttonDot: Button = findViewById(R.id.button_dot)
 
-        val buttonPlus = findViewById<Button>(R.id.button_plus)
-        val buttonMinus = findViewById<Button>(R.id.button_minus)
-        val buttonMultiply = findViewById<Button>(R.id.button_multiply)
-        val buttonDiv = findViewById<Button>(R.id.button_division)
-        val buttonPlusMinus = findViewById<Button>(R.id.button_plus_minus)
-        val buttonClear = findViewById<Button>(R.id.button_clear)
-        val buttonEquals = findViewById<Button>(R.id.button_equals)
+        val buttonPlus: Button = findViewById(R.id.button_plus)
+        val buttonMinus: Button = findViewById(R.id.button_minus)
+        val buttonMultiply: Button = findViewById(R.id.button_multiply)
+        val buttonDiv: Button = findViewById(R.id.button_division)
+        val buttonPlusMinus: Button = findViewById(R.id.button_plus_minus)
+        val buttonClear: Button = findViewById(R.id.button_clear)
+        val buttonEquals: Button = findViewById(R.id.button_equals)
 
-        val printResult = findViewById<TextView>(R.id.print_result)
-        val printHistory = findViewById<TextView>(R.id.print_history)
-        val printOperation = findViewById<TextView>(R.id.print_operation)
+        val printResult: TextView = findViewById(R.id.print_result)
+        val printHistory: TextView = findViewById(R.id.print_history)
+        val printOperation: TextView = findViewById(R.id.print_operation)
+        val settingsButton: ImageView = findViewById(R.id.settingsButton)
 
         //восстанавливаем состояние
         if (savedInstanceState != null) {
@@ -56,6 +61,11 @@ class MainActivity : AppCompatActivity() {
             printResult.text = num1
             printHistory.text = num2.toString()
             printOperation.text = lastOperation
+        }
+
+        settingsButton.setOnClickListener {
+            val settingsIntent = Intent(this, SettingsActivity::class.java)
+            startActivity(settingsIntent)
         }
 
         button0.setOnClickListener {
@@ -129,7 +139,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonEquals.setOnClickListener {
-            if (lastOperation != "" && num1 != ".") {
+            if (lastOperation != "" && num1 != "." && num2 != 0.0) {
                 when(lastOperation) {
                     "+" -> num2 += num1.toDouble()
                     "-" -> num2 -= num1.toDouble()

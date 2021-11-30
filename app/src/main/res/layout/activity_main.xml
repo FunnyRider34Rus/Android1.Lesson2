@@ -7,24 +7,20 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <ImageView
+        android:id="@+id/settingsButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitEnd"
+        android:src="@drawable/ic_settings_black_24dp" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/page_title"
-            app:menu="@menu/top_app_menu"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/print_history"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/history_height"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:background="@color/background_color_history"
         android:gravity="end|center_vertical"
         android:maxLines="2"
@@ -37,14 +33,16 @@
     <TextView
         android:id="@+id/print_operation"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/opertion_height"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="end|center_vertical"
         tools:text="operation" />
 
     <TextView
         android:id="@+id/print_result"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/result_height"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         android:gravity="end|center_vertical"
         android:maxLines="2"
         android:text="0"
@@ -55,8 +53,9 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center"
+        android:layout_weight="12"
         android:columnCount="4"
         android:orientation="horizontal">
 
@@ -168,12 +167,12 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_equals"
             style="?attr/materialButtonOutlinedStyle"
-            android:textColor="@color/colorPrimaryVariant"
-            android:backgroundTint="@color/colorPrimary"
             android:layout_rowSpan="2"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:text="@string/button_equals" />
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/button_equals"
+            android:textColor="@color/colorPrimaryVariant" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_0"
