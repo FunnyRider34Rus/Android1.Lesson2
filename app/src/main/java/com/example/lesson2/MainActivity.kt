@@ -26,18 +26,19 @@ class MainActivity : AppCompatActivity() {
     private var num2: Double = 0.0                          //@param буффурное значение
     private var isDot: Boolean = false                      //@param проверка нажатия точки
     private var lastOperation: String = ""                  //@param вывод знака операции
-    private var themeMode: Boolean = false
+    private var themeMode: Boolean = false                  //@param определение темы
 
+    //получаем данные от 2ой активити
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val Intent = result.data
-            Intent?.getBooleanExtra(THEME_MODE, themeMode)
+            val intent = result.data
+            intent?.getBooleanExtra(THEME_MODE, themeMode)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (themeMode) setTheme(R.style.Theme_MaterialComponents_NoActionBar)
+        if (themeMode) setTheme(R.style.Theme_MaterialComponents_NoActionBar)                       //применяем тему
             else setTheme(R.style.Theme_MaterialComponents_Light_NoActionBar)
         setContentView(R.layout.activity_main)
 
@@ -67,17 +68,22 @@ class MainActivity : AppCompatActivity() {
         val settingsButton: ImageView = findViewById(R.id.settingsButton)
 
         //восстанавливаем состояние
-        if (savedInstanceState != null) {
-            num1 = savedInstanceState.getString(NUM1).toString()
+        if (savedInstanceState != null) {                                                           //восстанавливаем состояние
+            num1 = savedInstanceState.getString(NUM1).toString()                                    //при смене кофигурации
             num2 = savedInstanceState.getDouble(NUM2)
             isDot = savedInstanceState.getBoolean(IS_DOT)
             lastOperation = savedInstanceState.getString(LAST_OPERATION).toString()
+            themeMode = savedInstanceState.getBoolean(THEME_MODE)
             printResult.text = num1
             printHistory.text = num2.toString()
             printOperation.text = lastOperation
+            if (themeMode) setTheme(R.style.Theme_MaterialComponents_NoActionBar)
+            else setTheme(R.style.Theme_MaterialComponents_Light_NoActionBar)
+            recreate()
         }
 
-        settingsButton.setOnClickListener {
+        settingsButton.setOnClickListener {                                                  //вызов 2ой активити
+            intent.putExtra(THEME_MODE, themeMode)
             startForResult.launch(Intent(this,  SettingsActivity::class.java))
         }
 
@@ -225,11 +231,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     //сохранияем переменные
-    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {                                  //сохраняем переменные для восстановления состояния
         savedInstanceState.putString(NUM1, num1)
         savedInstanceState.putDouble(NUM2, num2)
         savedInstanceState.putBoolean(IS_DOT, isDot)
         savedInstanceState.putString(LAST_OPERATION, lastOperation)
+        savedInstanceState.putBoolean(THEME_MODE, themeMode)
         super.onSaveInstanceState(savedInstanceState)
     }
 }
